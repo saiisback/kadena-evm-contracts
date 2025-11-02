@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --background: 246 57% 9%;
+  --foreground: 213 87% 97%;
+
+  --muted: 245 39% 18%;
+  --muted-foreground: 220 27% 72%;
+
+  --card: 246 57% 9%;
+  --card-foreground: 213 87% 97%;
+
+  --popover: 248 53% 8%;
+  --popover-foreground: 213 87% 97%;
+
+  --border: 245 31% 22%;
+  --input: 245 31% 22%;
+
+  --primary: 266 87% 63%;
+  --primary-foreground: 226 100% 98%;
+
+  --secondary: 323 87% 63%;
+  --secondary-foreground: 213 87% 97%;
+
+  --accent: 198 100% 64%;
+  --accent-foreground: 213 87% 8%;
+
+  --destructive: 0 82% 58%;
+  --destructive-foreground: 213 87% 97%;
+
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-sm: calc(var(--radius) - 8px);
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(132, 66, 255, 0.3), transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(255, 77, 173, 0.28), transparent 45%),
+    linear-gradient(135deg, #060714 0%, #090b1d 50%, #0e1027 100%);
+  color: hsl(var(--foreground));
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+.glass-panel {
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-xl shadow-black/20;
+}
+
+.kadena-gradient-text {
+  background: linear-gradient(120deg, #8c4cff 0%, #ff4cbf 40%, #35c3ff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kadena-border-gradient {
+  position: relative;
+}
+
+.kadena-border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(145deg, rgba(140, 76, 255, 0.8), rgba(53, 195, 255, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+::selection {
+  background: rgba(140, 76, 255, 0.35);
+  color: hsl(var(--foreground));
+}
